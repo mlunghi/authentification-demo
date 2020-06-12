@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:221218153903:ios:009a908d032bbee79b7b5a</string>
+	<string>1:221218153903:ios:4a100cf4dff7bde89b7b5a</string>
 	<key>DATABASE_URL</key>
 	<string>https://login-demo-c3ba2.firebaseio.com</string>
 </dict>

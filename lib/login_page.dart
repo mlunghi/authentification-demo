@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'auth.dart';
 
 class LoginPage extends StatefulWidget {
+  LoginPage({this.auth});
+  final BaseAuth auth;
   @override
   State<StatefulWidget> createState() => new _LoginPageState();
 }
@@ -47,11 +50,11 @@ class _LoginPageState extends State<LoginPage> {
     if(validateAndSave()) {
       try {
         if (_formType == FormType.login) {
-          FirebaseUser user = (await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password)).user;
-          print("Signed in: ${user.uid}");
+          String userID = await widget.auth.signInWithEmailAndPassword(_email, _password);
+          print("Signed in: $userID");
         } else {
-          FirebaseUser user = (await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password)).user;
-          print("Registered user: ${user.uid}");
+          String userID = await widget.auth.createUserWithEmailAndPassword(_email, _password);
+          print("Registered user: $userID");
         }
         
       } catch (e) {
